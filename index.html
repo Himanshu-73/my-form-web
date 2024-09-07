@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Application</title>
+    
+    <!-- W3.CSS Framework -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <!-- Link to CSS for styling -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Cascadia Font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet">
+</head>
+<body class="dark-theme">
+
+    <!-- Header with Analytics and Advanced Features Buttons -->
+    <header>
+        <button id="theme-toggle" class="w3-button w3-green">Switch to Light Theme</button>
+        <a href="analytics.html" class="w3-button w3-blue">Analytics</a>
+        <a href="advanced.html" class="w3-button w3-blue">Advanced Features</a>
+    </header>
+
+    <!-- Form Section -->
+    <section class="form-container">
+        <form id="data-form">
+            <h1 class="form-title">Submit Your Details</h1>
+
+            <!-- Name Input -->
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+
+            <!-- Email Input -->
+            <div class="form-group">
+                <label for="email">Email ID:</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Contact Input -->
+            <div class="form-group">
+                <label for="contact">Contact Details:</label>
+                <input type="tel" id="contact" name="contact" placeholder="Enter your contact number" required>
+            </div>
+
+            <!-- Socials Input -->
+            <div class="form-group">
+                <label for="socials">Socials Link:</label>
+                <input type="url" id="socials" name="socials" placeholder="Enter your social media link" required>
+            </div>
+
+            <!-- Drive Link Input -->
+            <div class="form-group">
+                <label for="drive">Achievements Drive Link:</label>
+                <input type="url" id="drive" name="drive" placeholder="Enter Google Drive link" required>
+            </div>
+
+            <!-- Terms and Conditions -->
+            <div class="form-group">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">
+                    I agree to the <a href="#" id="terms-link">terms and conditions</a>.
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="form-group">
+                <button type="submit" class="submit-button">Submit</button>
+            </div>
+
+            <!-- Thank You Message -->
+            <div id="thank-you-message" class="thank-you-message"></div>
+        </form>
+    </section>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
+<form action="submit_form.php" method="POST">
+    <label for="name">Name (required):</label>
+    <input type="text" id="name" name="name" required><br>
+
+    <label for="email">Email (required):</label>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="contact">Contact Details:</label>
+    <input type="text" id="contact" name="contact"><br>
+
+    <label for="socials">Social Links:</label>
+    <input type="text" id="socials" name="socials"><br>
+
+    <label for="drive_link">Drive Link (Achievements/Certificates):</label>
+    <input type="url" id="drive_link" name="drive_link"><br>
+
+    <input type="submit" value="Submit">
+</form>
+<!-- Inside the form, below the submit button -->
+<div class="terms-container">
+    <input type="checkbox" id="terms" required>
+    <label for="terms">I agree to the <a href="#" id="terms-link" onmouseover="showTerms()" onmouseout="hideTerms()">Terms and Conditions</a></label>
+    
+    <!-- Hidden div that will pop up with terms -->
+    <div id="terms-popup" class="terms-popup">
+      <h3>Terms and Conditions</h3>
+      <p>By submitting this form, you agree to the following terms and conditions:</p>
+      <ul>
+        <li>Your email will be used for sending weekly newsletters about events.</li>
+        <li>All the information you provide is submitted voluntarily and securely.</li>
+        <li>We take responsibility for safeguarding your personal data.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- CSS to style the popup and hide it initially -->
+  <style>
+    .terms-container {
+      position: relative;
+      margin-top: 20px;
+    }
+    #terms-popup {
+      display: none;
+      position: absolute;
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+      border-radius: 5px;
+      width: 250px;
+      top: 30px;
+      left: 0;
+      z-index: 100;
+    }
+    #terms-popup h3 {
+      margin-top: 0;
+    }
+  </style>
+  
+  <!-- JavaScript for showing and hiding the popup -->
+  <script>
+    function showTerms() {
+      document.getElementById("terms-popup").style.display = "block";
+    }
+  
+    function hideTerms() {
+      document.getElementById("terms-popup").style.display = "none";
+    }
+  </script>
+  

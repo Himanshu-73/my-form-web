@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics</title>
+    
+    <!-- W3.CSS Framework -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <!-- Link to CSS for styling -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Chart.js for graphs -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dark-theme">
+
+    <header>
+        <button id="theme-toggle" class="w3-button w3-green">Switch to Light Theme</button>
+        <a href="index.html" class="w3-button w3-blue">Back to Form</a>
+        <a href="advanced.html" class="w3-button w3-blue">Advanced Features</a>
+    </header>
+
+    <section class="form-container">
+        <h1 class="form-title">Analytics</h1>
+
+        <!-- Mock Statistics -->
+        <div id="statistics">
+            <h2>Statistics</h2>
+            <p>Number of Views: <span id="views">123</span></p>
+            <p>Number of Submissions: <span id="submissions">45</span></p>
+            <p>Submission Rate: <span id="submission-rate">36.6%</span></p>
+        </div>
+
+        <!-- Mock Graphs -->
+        <div class="graph-container">
+            <canvas id="responseChart"></canvas>
+        </div>
+    </section>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        // Example data for Chart.js
+        const ctx = document.getElementById('responseChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar', // 'bar', 'pie', etc.
+            data: {
+                labels: ['Option 1', 'Option 2', 'Option 3'],
+                datasets: [{
+                    label: 'Response Distribution',
+                    data: [30, 20, 50],
+                    backgroundColor: ['#ff6384', '#36a2eb', '#cc65fe'],
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `${tooltipItem.label}: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Features</title>
+    
+    <!-- W3.CSS Framework -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+    <!-- Link to CSS for styling -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+    <header>
+        <button id="theme-toggle" class="w3-button w3-green">Switch to Light Theme</button>
+        <a href="index.html" class="w3-button w3-blue">Back to Form</a>
+        <a href="analytics.html" class="w3-button w3-blue">Analytics</a>
+    </header>
+
+    <section class="form-container">
+        <h1 class="form-title">Advanced Features</h1>
+
+        <!-- Sorting Options -->
+        <div id="sorting-options">
+            <h2>Sort Data</h2>
+            <button class="w3-button w3-green" onclick="sortData('name')">Sort by Name</button>
+            <button class="w3-button w3-green" onclick="sortData('age')">Sort by Age Group</button>
+            <button class="w3-button w3-green" onclick="sortData('hobbies')">Sort by Hobbies</button>
+            <button class="w3-button w3-green" onclick="sortData('club')">Sort by Club</button>
+        </div>
+
+        <!-- Data Display -->
+        <div id="data-display">
+            <h2>Data Display</h2>
+            <!-- You can add a table or list here to display sorted data -->
+            <p>Data will be displayed here based on sorting options.</p>
+        </div>
+    </section>
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
+    <script>
+        function sortData(criteria) {
+            // Mock sorting function
+            alert(`Sorting by ${criteria}`);
+            // Implement data sorting logic here
+        }
+    </script>
+</body>
+</html>
