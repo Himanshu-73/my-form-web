@@ -71,3 +71,33 @@ document.getElementById('data-form').addEventListener('submit', function(event) 
     // Clear form fields
     document.getElementById('data-form').reset();
 });
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('myForm');
+
+  form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = {
+          name: document.getElementById('name').value,
+          email: document.getElementById('email').value,
+          contact: document.getElementById('contact').value,
+          socials: document.getElementById('socials').value,
+          achievements: document.getElementById('achievements').value,
+      };
+
+      try {
+          const response = await fetch('/submit', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json',
+              },
+              body: JSON.stringify(formData),
+          });
+
+          const result = await response.text();
+          alert(result); // Show response from the server
+      } catch (error) {
+          console.error('Error submitting form:', error);
+      }
+  });
+});
