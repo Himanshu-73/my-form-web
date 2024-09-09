@@ -11,8 +11,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-const app = express();
-app.use(bodyParser.json());
+(express()).use(bodyParser.json());
 
 // Replace this with your MongoDB connection string
 const mongoURI = ' mongodb+srv://himanshu_sahu:data_storage@lelouch.oxqzh.mongodb.net/';
@@ -31,15 +30,48 @@ const FormSchema = new mongoose.Schema({
 });
 
 
-const FormData = mongoose.model('FormData', FormSchema);
 
-// POST route to handle form submissions
-app.post('/submit', (req, res) => {
-  const newForm = new FormData(req.body);
-  newForm.save()
-    .then(() => res.status(200).send('Form data saved!'))
-    .catch(err => res.status(500).send('Failed to save form data'));
+const express = require('express');
+const cors = require('cors'); // Import CORS
+const mongoose = require('mongoose');
+const app = express();
+
+// Middleware to enable CORS
+(express()).use(cors()); // Enable CORS for all requests
+(express()).use(express.json());
+(express()).use(express.urlencoded({ extended: true }));
+
+// MongoDB connection
+mongoose.connect('YOUR_MONGODB_URI', { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log('MongoDB connected'))
+  .catch(err => console.log(err));
+
+// Schema and Model
+const formDataSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+  message: String
 });
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const FormData = mongoose.model('FormData', formDataSchema);
+
+// Handle form submission
+(express()).post('/submit', async (req, res) => {
+  try {
+    const formData = new (mongoose.model('FormData', FormSchema))({
+      name: req.body.name,
+      email: req.body.email,
+      message: req.body.message
+    });
+
+    await formData.save();
+    res.status(200).send('Form submitted successfully');
+  } catch (error) {
+    res.status(405).send('Error submitting form');
+  }
+});
+
+// Start the server
+(express()).listen(3000, () => {
+  console.log('Server running on port 3000');
+});
