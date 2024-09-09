@@ -15,7 +15,7 @@ const app = express();
 app.use(bodyParser.json());
 
 // Replace this with your MongoDB connection string
-const mongoURI = 'your_mongodb_connection_string';
+const mongoURI = ' mongodb+srv://himanshu_sahu:data_storage@lelouch.oxqzh.mongodb.net/';
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('MongoDB connected'))
@@ -29,6 +29,7 @@ const FormSchema = new mongoose.Schema({
   socials: String,
   driveLink: String,
 });
+
 
 const FormData = mongoose.model('FormData', FormSchema);
 
