@@ -43,13 +43,6 @@ Clone the repository:
 bash
 Copy code
 git clone https://github.com/your-username/form-project.git
-Set up your environment:
-Install XAMPP/WAMP to run a local server and test the PHP/MySQL backend (for form submissions).
-Ensure that you have Git installed on your machine.
-Run the project locally:
-Place the project files in the htdocs folder of XAMPP.
-Start Apache and MySQL from XAMPP.
-Access the form in your browser via http://localhost/my-website/index.html.
 Contribute:
 If you want to add a feature or make improvements, please fork the repository and submit a pull request.
 All contributions are welcome!
