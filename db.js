@@ -1,7 +1,7 @@
 // db.js
 const mongoose = require('mongoose');
 
-const mongoURI = mongodb+srv://himanshu_sahu:data_storage@lelouch.oxqzh.mongodb.net/?retryWrites=true&w=majority&appName=lelouch;
+const mongoURI = mongodb+srv//himanshu_sahu:data_storage@lelouch.oxqzh.mongodb.net/?retryWrites=true&w=majority&appName=lelouch;
 
 const connectDB = async () => {
   try {
